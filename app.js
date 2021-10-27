@@ -1,43 +1,51 @@
-const playerPrompt = prompt("what will it be?");
-const playerSelection = playerPrompt.toLowerCase();
+//this file will probably be removed soon - dont look at this code, it's full of sauce being spagetti and all
 
 let playerScore = 0;
 let pcScore = 0;
 
 // let gameChoice = ["rock", "paper", "scissors"];
-let gameChoice = ["a", "b"];
+let gameChoice = ["a", "b"]; // for testing purposes
 
-
-function computerPlay(){
-    let result = gameChoice[Math.floor(Math.random()*gameChoice.length)];
-    return result;
-}
-
-const computerSelection = computerPlay();
-
+//here
 
 function game(){
 
-    for (i=0; i < 6; i++){
+    for (i=1; i < 6; i++){
+        const playerPrompt = prompt("what will it be?");
+        let playerSelection = playerPrompt.toLowerCase();
+        console.log('playerChoice: ' + playerSelection);
+
+        function computerPlay(){
+            let result = gameChoice[Math.floor(Math.random() * gameChoice.length)];
+            console.log("computerSelection: " + result);
+            return result;
+        }
+        
+        let computerSelection = computerPlay();
 
         function playRound(playerSelection, computerSelection) {
             if (playerSelection === computerSelection){
+                console.log('player won round: ' + i);
                 playerScore++;
-                console.log('yay');
             } else {
+                console.log('pc won round: ' + i);
                 pcScore++;
             }
         }
+        // console.log("round: " + i);
+        playRound();
     }
 
+    
+
     if(playerScore > pcScore){
-        alert("player won");
+        console.log("player won");
     } else{
-        alert("PC won");
+        console.log("PC won");
     }
 }
 
-game(); // the problem
+game(); 
 
-console.log(playRound(playerSelection, computerSelection));
+// console.log(playRound(playerSelection, computerSelection));
 
