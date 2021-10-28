@@ -5,11 +5,7 @@
 ## General info
 This is a classic game of Rock, Paper, Scissors. It is (currently) played in the console (frontend version otw).
 
-For simplicity, user options are: 
-    (case insensitive)
-    "r" - rock
-    "p" - paper 
-    "s" - scissors
+For simplicity, user-input options are: "r" - rock | "p" - paper | "s" - scissors (case insensitive)
 	
 ## Technologies
 This is a project proposed by The Odin Project as part of the foundations module.
