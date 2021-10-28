@@ -9,7 +9,7 @@ function game(){
         // player makes a choice
         const playerPrompt = prompt("what will it be?");
         let playerSelection = playerPrompt.toLowerCase();
-        console.log("player chose: " + playerSelection);
+        console.log("%cplayer chose: " + playerSelection, "color: green");
 
         // computer makes a choice
         function computerPlay(){
@@ -19,28 +19,28 @@ function game(){
         }
 
         let computerSelection = computerPlay();
-        console.log("computer chose: " + computerSelection);
+        console.log("%ccomputer chose: " + computerSelection, "color: green");
 
         function playRound(playerSelection, computerSelection){
             // choices are compared
             if(playerSelection == computerSelection){
-                console.log("round: " + i + " is a tie");
+                console.log("%cround: " + i + " is a tie", "color: orange");
             } else if(playerSelection === "r" && computerSelection === "s"){
                 playerScore++
                 console.log("PLAYER: " + playerScore);
-                console.log("player wins round: " + i);
+                console.log("%cplayer wins round: " + i, "color: purple");
             } else if(playerSelection === "p" && computerSelection === "r"){
                 playerScore++
                 console.log("PLAYER: " + playerScore);
-                console.log("player wins round: " + i);
+                console.log("%cplayer wins round: " + i, "color: purple");
             } else if(playerSelection === "s" && computerSelection === "p"){
                 playerScore++
                 console.log("PLAYER: " + playerScore);
-                console.log("player wins round: " + i);
+                console.log("%cplayer wins round: " + i, "color: purple");
             } else{
                 computerScore++
                 console.log("COMPUTER: " + computerScore);
-                console.log("computer wins round: " + i)
+                console.log("%ccomputer wins round: " + i, "color: violet")
             }
 
         }
@@ -48,20 +48,17 @@ function game(){
         playRound(playerSelection, computerSelection);
     }
 
+    console.log("%cplayer total score: " + playerScore, "color: crimson");
+    console.log("%ccomputer total score " + computerScore, "color: crimson");
+
     // winner is the best out of 5
     if(playerScore > computerScore){
-        console.info("%cplayer wins the game", "color: blue");
+        console.log("%cplayer wins the game", "color: blue");
+    } else if (computerScore > playerScore){
+        console.log("%ccomputer wins the game", "color: blue");
     } else{
-        console.info("%ccomputer wins the game", "color: blue");
+        console.log("%cgame ends in a tie", "color: crimson");
     }
-
-    // if(playerScore > computerScore){
-    //     console.info("player wins the game");
-    // } else if(computerScore < playerScore){
-    //     console.info("computer wins the game");
-    // } else{
-    //     console.info("the game ends in a tie");
-    // }
 }
 
 game();
