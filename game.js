@@ -4,7 +4,7 @@ function game(){
     let playerScore = 0;
     let computerScore = 0;
 
-    for(i=1; i<2; i++){
+    for(i=1; i<6; i++){
 
         // player makes a choice
         const playerPrompt = prompt("what will it be?");
@@ -23,35 +23,45 @@ function game(){
 
         function playRound(playerSelection, computerSelection){
             // choices are compared
-            if(playerSelection === computerSelection){
+            if(playerSelection == computerSelection){
                 console.log("round: " + i + " is a tie");
             } else if(playerSelection === "r" && computerSelection === "s"){
                 playerScore++
+                console.log("PLAYER: " + playerScore);
                 console.log("player wins round: " + i);
             } else if(playerSelection === "p" && computerSelection === "r"){
                 playerScore++
+                console.log("PLAYER: " + playerScore);
                 console.log("player wins round: " + i);
             } else if(playerSelection === "s" && computerSelection === "p"){
                 playerScore++
+                console.log("PLAYER: " + playerScore);
                 console.log("player wins round: " + i);
             } else{
                 computerScore++
+                console.log("COMPUTER: " + computerScore);
                 console.log("computer wins round: " + i)
             }
 
         }
 
-        playRound();
+        playRound(playerSelection, computerSelection);
     }
 
     // winner is the best out of 5
     if(playerScore > computerScore){
-        console.log("player won");
-    } else if(computerScore < playerScore){
-        console.log("computer won");
+        console.info("%cplayer wins the game", "color: blue");
     } else{
-        console.log("it's a tie");
+        console.info("%ccomputer wins the game", "color: blue");
     }
+
+    // if(playerScore > computerScore){
+    //     console.info("player wins the game");
+    // } else if(computerScore < playerScore){
+    //     console.info("computer wins the game");
+    // } else{
+    //     console.info("the game ends in a tie");
+    // }
 }
 
 game();
