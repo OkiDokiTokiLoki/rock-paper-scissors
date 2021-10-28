@@ -1,9 +1,10 @@
-// the game lasts for 5 rounds
+
 function game(){
 
     let playerScore = 0;
     let computerScore = 0;
 
+    // the game lasts for 5 rounds
     for(i=1; i<6; i++){
 
         // player makes a choice
@@ -42,7 +43,6 @@ function game(){
                 console.log("COMPUTER: " + computerScore);
                 console.log("%ccomputer wins round: " + i, "color: violet")
             }
-
         }
 
         playRound(playerSelection, computerSelection);
@@ -53,11 +53,11 @@ function game(){
 
     // winner is the best out of 5
     if(playerScore > computerScore){
-        console.log("%cplayer wins the game", "color: blue");
+        alert("player wins the game");
     } else if (computerScore > playerScore){
-        console.log("%ccomputer wins the game", "color: blue");
+        alert("computer wins the game");
     } else{
-        console.log("%cgame ends in a tie", "color: crimson");
+        alert("it's a tie");
     }
 }
 
