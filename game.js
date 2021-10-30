@@ -1,4 +1,3 @@
-
 function game(){
 
     let playerScore = 0;
@@ -14,7 +13,7 @@ function game(){
 
         // computer makes a choice
         function computerPlay(){
-            let selection = ["r", "p", "s"];
+            const selection = ["r", "p", "s"];
             let res = selection[Math.floor(Math.random() * selection.length)];
             return res;
         }
