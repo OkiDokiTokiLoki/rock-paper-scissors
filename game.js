@@ -1,63 +1,72 @@
-function game(){
+const scoreInfo = document.querySelector('#scoreInfo');
+const pTally = document.querySelector('.pScore');
+const cTally = document.querySelector('.cScore');
+const buttons = document.querySelectorAll('button');
+const rockBtn = document.querySelector('#rockBtn');
+const paperBtn = document.querySelector('#paperBtn');
+const scissorsBtn = document.querySelector('#scissorsBtn');
+// const endResult = document.querySelector('.endResult');
 
-    let playerScore = 0;
-    let computerScore = 0;
+let playerScore = 0;
+let computerScore = 0;
+let roundWinner = '';
 
-    // the game lasts for 5 rounds
-    for(i=1; i<6; i++){
+rockBtn.addEventListener('click', () => handleClick('rock'));
+paperBtn.addEventListener('click', () => handleClick('paper'));
+scissorsBtn.addEventListener('click', () => handleClick('scissors'));
 
-        // player makes a choice
-        const playerPrompt = prompt("what will it be?");
-        let playerSelection = playerPrompt.toLowerCase();
-        console.log("%cplayer chose: " + playerSelection, "color: green");
 
-        // computer makes a choice
-        function computerPlay(){
-            const selection = ["r", "p", "s"];
-            let res = selection[Math.floor(Math.random() * selection.length)];
-            return res;
-        }
-
-        let computerSelection = computerPlay();
-        console.log("%ccomputer chose: " + computerSelection, "color: green");
-
-        function playRound(playerSelection, computerSelection){
-            // choices are compared
-            if(playerSelection == computerSelection){
-                console.log("%cround: " + i + " is a tie", "color: orange");
-            } else if(playerSelection === "r" && computerSelection === "s"){
-                playerScore++
-                console.log("PLAYER SCORE: " + playerScore);
-                console.log("%cplayer wins round: " + i, "color: purple");
-            } else if(playerSelection === "p" && computerSelection === "r"){
-                playerScore++
-                console.log("PLAYER SCORE: " + playerScore);
-                console.log("%cplayer wins round: " + i, "color: purple");
-            } else if(playerSelection === "s" && computerSelection === "p"){
-                playerScore++
-                console.log("PLAYER SCORE: " + playerScore);
-                console.log("%cplayer wins round: " + i, "color: purple");
-            } else{
-                computerScore++
-                console.log("COMPUTER SCORE: " + computerScore);
-                console.log("%ccomputer wins round: " + i, "color: violet")
-            }
-        }
-
-        playRound(playerSelection, computerSelection);
-    }
-
-    console.log("%cplayer total score: " + playerScore, "color: crimson");
-    console.log("%ccomputer total score " + computerScore, "color: crimson");
-
-    // winner is the best out of 5
-    if(playerScore > computerScore){
-        alert("player wins the game");
-    } else if (computerScore > playerScore){
-        alert("computer wins the game");
-    } else{
-        alert("it's a tie");
+function getComputerChoice() {
+    let computerChoice = Math.floor(Math.random() * 3)
+    switch (computerChoice) {
+        case 0:
+        return 'rock'
+        case 1:
+        return 'paper'
+        case 2:
+        return 'scissors'
     }
 }
 
-game();
+function playRound(playerSelection, computerSelection){
+    // choices are compared
+    if(playerSelection == computerSelection){
+        roundWinner = 'tie';
+    } else if(playerSelection === "rock" && computerSelection === "scissors"){
+        playerScore++
+        roundWinner = 'player';
+    } else if(playerSelection === "paper" && computerSelection === "rock"){
+        playerScore++
+        roundWinner = 'player';
+    } else if(playerSelection === "scissors" && computerSelection === "papaer"){
+        playerScore++
+        roundWinner = 'player';
+    } else{
+        computerScore++
+        roundWinner = 'computer';
+    }
+}
+
+// function isGameOver() {
+//     return playerScore === 5 || computerScore === 5
+// } 
+
+function updateScore(){
+
+    if (roundWinner === 'tie'){
+        scoreInfo.textContent = "It's a tie!";
+    } else if (roundWinner === 'player'){
+        scoreInfo.textContent = 'You won!';
+    } else if (roundWinner === 'computer'){
+        scoreInfo.textContent = 'You lost!';
+    }
+
+    pTally.textContent = `${playerScore}`;
+    cTally.textContent = `${computerScore}`;
+}
+
+function handleClick(playerSelection){
+    const computerSelection = getComputerChoice();
+    playRound(playerSelection, computerSelection);
+    updateScore()
+}
