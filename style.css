@@ -16,14 +16,19 @@ body{
     color: white;
 }
 
-.liveScore,
-.endResult{
+.liveScore{
     height: 150px;
     width: 100%;
-    background-color: tomato;
+}
+
+.users{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 button{
+    margin: 0 20px;
     padding: 10px;
     background-color: whitesmoke;
     border: none;
