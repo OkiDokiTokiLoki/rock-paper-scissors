@@ -27,19 +27,19 @@ function game(){
                 console.log("%cround: " + i + " is a tie", "color: orange");
             } else if(playerSelection === "r" && computerSelection === "s"){
                 playerScore++
-                console.log("PLAYER: " + playerScore);
+                console.log("PLAYER SCORE: " + playerScore);
                 console.log("%cplayer wins round: " + i, "color: purple");
             } else if(playerSelection === "p" && computerSelection === "r"){
                 playerScore++
-                console.log("PLAYER: " + playerScore);
+                console.log("PLAYER SCORE: " + playerScore);
                 console.log("%cplayer wins round: " + i, "color: purple");
             } else if(playerSelection === "s" && computerSelection === "p"){
                 playerScore++
-                console.log("PLAYER: " + playerScore);
+                console.log("PLAYER SCORE: " + playerScore);
                 console.log("%cplayer wins round: " + i, "color: purple");
             } else{
                 computerScore++
-                console.log("COMPUTER: " + computerScore);
+                console.log("COMPUTER SCORE: " + computerScore);
                 console.log("%ccomputer wins round: " + i, "color: violet")
             }
         }
