@@ -38,7 +38,7 @@ function playRound(playerSelection, computerSelection){
     } else if(playerSelection === "paper" && computerSelection === "rock"){
         playerScore++
         roundWinner = 'player';
-    } else if(playerSelection === "scissors" && computerSelection === "papaer"){
+    } else if(playerSelection === "scissors" && computerSelection === "paper"){
         playerScore++
         roundWinner = 'player';
     } else{

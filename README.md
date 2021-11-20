@@ -3,12 +3,13 @@
 [Live demo](https://okidokitokiloki.github.io/rock-paper-scissors/)
 
 ## General info
-This is a classic game of Rock, Paper, Scissors. It is (currently) played in the console (frontend version otw).
+This is a classic game of Rock, Paper, Scissors. Additional styling still to be implemented to give better user feedback such as onHover effects. As well as restart functionality and an ending to the game - currently, the game runs infinitely.
 
-For simplicity, user-input options are: "r" - rock | "p" - paper | "s" - scissors (case insensitive)
 	
 ## Technologies
 This is a project proposed by The Odin Project as part of the foundations module.
 
 Project is created with:
+* HTML
+* CSS
 * JavaScript
