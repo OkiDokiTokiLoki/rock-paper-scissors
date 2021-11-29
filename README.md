@@ -7,7 +7,7 @@ This is a classic game of Rock, Paper, Scissors. Additional styling still to be 
 
 	
 ## Technologies
-This is a project proposed by The Odin Project as part of the foundations module.
+Utilizing vanilla front end technology and manipulating DOM elements in the browser to set up and play the game.
 
 Project is created with:
 * HTML
