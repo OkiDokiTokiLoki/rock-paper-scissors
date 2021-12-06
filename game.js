@@ -54,11 +54,14 @@ function playRound(playerSelection, computerSelection){
 function updateScore(){
 
     if (roundWinner === 'tie'){
-        scoreInfo.textContent = "It's a tie!";
+        scoreInfo.style.color = 'white';
+        scoreInfo.textContent = "== it's a tie ==";
     } else if (roundWinner === 'player'){
-        scoreInfo.textContent = 'You won!';
+        scoreInfo.style.color = 'var(--orange)';
+        scoreInfo.textContent = '++ you win this round! ++';
     } else if (roundWinner === 'computer'){
-        scoreInfo.textContent = 'You lost!';
+        scoreInfo.style.color = 'var(--pink)';
+        scoreInfo.textContent = '-- computer wins this round --';
     }
 
     pTally.textContent = `${playerScore}`;
