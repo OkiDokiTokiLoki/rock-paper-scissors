@@ -81,13 +81,3 @@ footer{
 .footer:hover{
     color: var(--pink);
 }
-
-.footer-icon{
-    margin-left: 10px;
-    width: 25px;
-    height: 25px;
-}
-
-.footer-icon:hover{
-    transform: rotate(360deg);
-}
