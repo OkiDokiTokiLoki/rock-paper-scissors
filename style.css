@@ -59,6 +59,7 @@ button:hover{
     box-shadow: inset 0 0 10px rgba(255, 255, 255, .5), 0 0 10px rgba(255, 255, 255, .2);
     outline-color: rgba(255, 255, 255, 0);
     outline-offset: 15px;
+    cursor: pointer;
 }
 
 footer{

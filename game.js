@@ -15,7 +15,6 @@ rockBtn.addEventListener('click', () => handleClick('rock'));
 paperBtn.addEventListener('click', () => handleClick('paper'));
 scissorsBtn.addEventListener('click', () => handleClick('scissors'));
 
-
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3)
     switch (computerChoice) {
@@ -47,14 +46,10 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-// function isGameOver() {
-//     return playerScore === 5 || computerScore === 5
-// } 
-
 function updateScore(){
 
     if (roundWinner === 'tie'){
-        scoreInfo.style.color = 'white';
+        scoreInfo.style.color = 'whitesmoke';
         scoreInfo.textContent = "= it's a tie =";
     } else if (roundWinner === 'player'){
         scoreInfo.style.color = 'var(--orange)';
