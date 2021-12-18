@@ -41,6 +41,12 @@ h1{
     align-items: center;
 }
 
+.pScore,
+.cScore{
+    position: absolute;
+    text-indent: 5px;
+}
+
 .buttons{
     margin-bottom: 100px;
 }
