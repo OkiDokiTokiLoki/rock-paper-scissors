@@ -50,13 +50,13 @@ function updateScore(){
 
     if (roundWinner === 'tie'){
         scoreInfo.style.color = 'whitesmoke';
-        scoreInfo.textContent = "= it's a tie =";
+        scoreInfo.textContent = `= it's a tie =`;
     } else if (roundWinner === 'player'){
         scoreInfo.style.color = 'var(--orange)';
-        scoreInfo.textContent = '+ you win this round! +';
+        scoreInfo.textContent = `+ you win this round! +`;
     } else if (roundWinner === 'computer'){
         scoreInfo.style.color = 'var(--pink)';
-        scoreInfo.textContent = '- computer wins this round -';
+        scoreInfo.textContent = `- computer wins this round -`;
     }
 
     pTally.textContent = `${playerScore}`;
