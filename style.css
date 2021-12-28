@@ -112,8 +112,14 @@ footer a:hover{
     }
 }
 
-/* @media screen and (min-width: 451px) and (max-width: 768px) {
+@media screen and (min-width: 451px) and (max-width: 1001px) {
     body {
-        background-color: lightcoral;
+        height: 95vh;
+        padding: 0;
+        margin: 0;
     }
-} */
+
+    button{
+        margin: 5px;
+    }
+}
