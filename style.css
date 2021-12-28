@@ -119,7 +119,28 @@ footer a:hover{
         margin: 0;
     }
 
+    h1{
+        font-size: 4rem;
+    }
+
+    h2{
+        font-size: 4rem;
+    }
+
+    h3{
+        font-size: 2rem;
+    }
+
+    .liveScore{
+        height: 20vh;
+    }
+
     button{
         margin: 5px;
+    }
+
+    button img{
+        width: 200px;
+        height: 200px;
     }
 }

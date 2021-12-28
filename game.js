@@ -56,7 +56,7 @@ function updateScore(){
         scoreInfo.textContent = `+ you win this round! +`;
     } else if (roundWinner === 'computer'){
         scoreInfo.style.color = 'var(--pink)';
-        scoreInfo.textContent = `- computer wins this round -`;
+        scoreInfo.textContent = `- you lose this round -`;
     }
 
     pTally.textContent = `${playerScore}`;
