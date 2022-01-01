@@ -1,6 +1,3 @@
-const scoreInfo = document.querySelector('#scoreInfo');
-const pTally = document.querySelector('.pScore');
-const cTally = document.querySelector('.cScore');
 const buttons = document.querySelectorAll('button');
 const rockBtn = document.querySelector('#rockBtn');
 const paperBtn = document.querySelector('#paperBtn');
@@ -47,6 +44,9 @@ function playRound(playerSelection, computerSelection){
 }
 
 function updateScore(){
+    const scoreInfo = document.querySelector('#scoreInfo');
+    const pTally = document.querySelector('.pScore');
+    const cTally = document.querySelector('.cScore');
 
     if (roundWinner === 'tie'){
         scoreInfo.style.color = 'whitesmoke';
