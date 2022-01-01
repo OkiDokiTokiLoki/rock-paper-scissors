@@ -1,4 +1,3 @@
-const buttons = document.querySelectorAll('button');
 const rockBtn = document.querySelector('#rockBtn');
 const paperBtn = document.querySelector('#paperBtn');
 const scissorsBtn = document.querySelector('#scissorsBtn');
