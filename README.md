@@ -9,7 +9,7 @@ This is a classic game of Rock, Paper, Scissors.
 
 	
 ## Technologies
-Utilizing vanilla front end technology and manipulating DOM elements in the browser to set up and play the game.
+Utilizing vanilla frontend technology and manipulating DOM elements in the browser to set up and play the game.
 
 Project is created with:
 * HTML
