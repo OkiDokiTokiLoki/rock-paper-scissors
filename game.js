@@ -23,11 +23,10 @@ function getComputerChoice() {
     }
 }
 
-const playerPick = document.querySelector('#player');
-const computerPick = document.querySelector('#computer');
-
 function playRound(playerSelection, computerSelection){
-    // choices are compared
+    const playerPick = document.querySelector('#player');
+    const computerPick = document.querySelector('#computer');
+
     if(playerSelection == computerSelection){
         roundWinner = 'tie';
     } else if(playerSelection === "rock" && computerSelection === "scissors"){
