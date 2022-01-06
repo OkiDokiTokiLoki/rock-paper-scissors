@@ -23,8 +23,8 @@ function getComputerChoice() {
     }
 }
 
-const playerPick = document.querySelector('#hello');
-const computerPick = document.querySelector('#world');
+const playerPick = document.querySelector('#player');
+const computerPick = document.querySelector('#computer');
 
 function playRound(playerSelection, computerSelection){
     // choices are compared
