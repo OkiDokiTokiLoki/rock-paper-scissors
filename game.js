@@ -23,6 +23,9 @@ function getComputerChoice() {
     }
 }
 
+const playerPick = document.querySelector('#hello');
+const computerPick = document.querySelector('#world');
+
 function playRound(playerSelection, computerSelection){
     // choices are compared
     if(playerSelection == computerSelection){
@@ -40,6 +43,9 @@ function playRound(playerSelection, computerSelection){
         computerScore++
         roundWinner = 'computer';
     }
+
+    playerPick.textContent = playerSelection;
+    computerPick.textContent = computerSelection;
 }
 
 function updateScore(){
