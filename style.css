@@ -47,6 +47,10 @@ h1{
     text-indent: 5px;
 }
 
+.user p{
+    font-size: 2rem;
+}
+
 .buttons{
     margin-bottom: 100px;
 }
