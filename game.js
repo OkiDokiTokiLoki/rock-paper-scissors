@@ -1,6 +1,8 @@
 const rockBtn = document.querySelector('#rockBtn');
 const paperBtn = document.querySelector('#paperBtn');
 const scissorsBtn = document.querySelector('#scissorsBtn');
+const playerPick = document.querySelector('#player');
+const computerPick = document.querySelector('#computer');
 // const endResult = document.querySelector('.endResult');
 
 let playerScore = 0;
@@ -24,8 +26,7 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection){
-    const playerPick = document.querySelector('#player');
-    const computerPick = document.querySelector('#computer');
+    
 
     if(playerSelection == computerSelection){
         roundWinner = 'tie';
@@ -42,9 +43,32 @@ function playRound(playerSelection, computerSelection){
         computerScore++
         roundWinner = 'computer';
     }
+}
 
-    playerPick.textContent = playerSelection;
-    computerPick.textContent = computerSelection;
+function updateChoices(playerSelection, computerSelection) {
+    switch (playerSelection) {
+      case 'rock':
+        playerPick.textContent = '✊'
+        break
+      case 'paper':
+        playerPick.textContent = '✋'
+        break
+      case 'scissors':
+        playerPick.textContent = '✌'
+        break
+    }
+  
+    switch (computerSelection) {
+      case 'rock':
+        computerPick.textContent = '✊'
+        break
+      case 'paper':
+        computerPick.textContent = '✋'
+        break
+      case 'scissors':
+        computerPick.textContent = '✌'
+        break
+    }
 }
 
 function updateScore(){
@@ -70,5 +94,6 @@ function updateScore(){
 function handleClick(playerSelection){
     const computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
+    updateChoices(playerSelection, computerSelection)
     updateScore()
 }
