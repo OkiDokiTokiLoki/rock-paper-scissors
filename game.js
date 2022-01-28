@@ -3,7 +3,7 @@ const paperBtn = document.querySelector('#paperBtn');
 const scissorsBtn = document.querySelector('#scissorsBtn');
 const playerPick = document.querySelector('#player');
 const computerPick = document.querySelector('#computer');
-// const endResult = document.querySelector('.endResult');
+const endResult = document.querySelector('.endResult');
 
 let playerScore = 0;
 let computerScore = 0;
@@ -94,14 +94,27 @@ function updateScore(){
 }
 
 function handleClick(playerSelection){
-    if (isGameOver()){
-        return playerScore > computerScore
-        ? (console.log(`you won`))
-        : (console.log(`you lost`))
-    }
 
     const computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
     updateChoices(playerSelection, computerSelection);
-    updateScore();    
+    updateScore();  
+
+    if (isGameOver()){
+        endGame()
+        return
+    }
+}
+
+function endGame(){
+
+    if (playerScore > computerScore){
+        endResult.textContent = 'Yay! You won';
+        endResult.style.color = 'var(--orange)';
+    } else{
+        endResult.textContent = 'Ah you lose, better luck next time';
+        endResult.style.color = 'var(--pink)';
+    }
+
+    return
 }
