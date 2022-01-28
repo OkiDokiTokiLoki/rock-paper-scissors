@@ -25,9 +25,11 @@ function getComputerChoice() {
     }
 }
 
-function playRound(playerSelection, computerSelection){
-    
+function isGameOver(){
+    return playerScore === 5 || computerScore === 5;
+}
 
+function playRound(playerSelection, computerSelection){
     if(playerSelection == computerSelection){
         roundWinner = 'tie';
     } else if(playerSelection === "rock" && computerSelection === "scissors"){
@@ -92,8 +94,14 @@ function updateScore(){
 }
 
 function handleClick(playerSelection){
+    if (isGameOver()){
+        return playerScore > computerScore
+        ? (console.log(`you won`))
+        : (console.log(`you lost`))
+    }
+
     const computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
-    updateChoices(playerSelection, computerSelection)
-    updateScore()
+    updateChoices(playerSelection, computerSelection);
+    updateScore();    
 }
