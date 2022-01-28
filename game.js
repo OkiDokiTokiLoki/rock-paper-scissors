@@ -74,8 +74,10 @@ function updateChoices(playerSelection, computerSelection) {
     }
 }
 
+const scoreInfo = document.querySelector('#scoreInfo');
+
 function updateScore(){
-    const scoreInfo = document.querySelector('#scoreInfo');
+    
     const pTally = document.querySelector('.pScore');
     const cTally = document.querySelector('.cScore');
 
@@ -106,12 +108,13 @@ function handleClick(playerSelection){
 }
 
 function endGame(){
+
+    document.body.style.backgroundColor = '#006891';
+    
     if (playerScore > computerScore){
-        endResult.textContent = 'Yay! You won';
-        endResult.style.color = 'var(--orange)';
+        scoreInfo.textContent = 'Yay! You won the game';
     } else{
-        endResult.textContent = 'Ah you lose, better luck next time';
-        endResult.style.color = 'var(--pink)';
+        scoreInfo.textContent = 'Ah you lose, better luck next time';
     }
     return
 }
