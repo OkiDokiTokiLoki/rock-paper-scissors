@@ -4,6 +4,7 @@ const scissorsBtn = document.querySelector('#scissorsBtn');
 const playerPick = document.querySelector('#player');
 const computerPick = document.querySelector('#computer');
 const endResult = document.querySelector('.endResult');
+const restartBtn = document.querySelector('#restart');
 
 let playerScore = 0;
 let computerScore = 0;
@@ -88,13 +89,11 @@ function updateScore(){
         scoreInfo.style.color = 'var(--pink)';
         scoreInfo.textContent = `- you lose this round -`;
     }
-
     pTally.textContent = `${playerScore}`;
     cTally.textContent = `${computerScore}`;
 }
 
 function handleClick(playerSelection){
-
     const computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
     updateChoices(playerSelection, computerSelection);
@@ -107,7 +106,6 @@ function handleClick(playerSelection){
 }
 
 function endGame(){
-
     if (playerScore > computerScore){
         endResult.textContent = 'Yay! You won';
         endResult.style.color = 'var(--orange)';
@@ -115,6 +113,11 @@ function endGame(){
         endResult.textContent = 'Ah you lose, better luck next time';
         endResult.style.color = 'var(--pink)';
     }
-
     return
+}
+
+restartBtn.addEventListener('click', restart)
+
+function restart(){
+    location.reload();
 }
