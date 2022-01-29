@@ -3,9 +3,7 @@
 [Live demo](https://okidokitokiloki.github.io/rock-paper-scissors/)
 
 ## General info
-This is a classic game of Rock, Paper, Scissors. 
-
-*Additional functionality still to be implemented such player and computer choices getting displayed after each round as well as an ending to the game - currently, the game runs indefinitely.
+This is a classic game of Rock, Paper, Scissors. The game ends after either the player or the computer has reached a total score of 5.
 
 	
 ## Technologies
