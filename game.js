@@ -3,12 +3,13 @@ const paperBtn = document.querySelector('#paperBtn');
 const scissorsBtn = document.querySelector('#scissorsBtn');
 const playerPick = document.querySelector('#player');
 const computerPick = document.querySelector('#computer');
-const endResult = document.querySelector('.endResult');
 const restartBtn = document.querySelector('#restart');
+const popupModal = document.querySelector('#popupModal');
 
 let playerScore = 0;
 let computerScore = 0;
 let roundWinner = '';
+
 
 rockBtn.addEventListener('click', () => handleClick('rock'));
 paperBtn.addEventListener('click', () => handleClick('paper'));
@@ -109,7 +110,8 @@ function handleClick(playerSelection){
 
 function endGame(){
 
-    document.body.style.backgroundColor = '#006891';
+    //document.body.style.backgroundColor = '#006891';
+    popupModal.classList.add('show');
     
     if (playerScore > computerScore){
         scoreInfo.textContent = 'Yay! You won the game';

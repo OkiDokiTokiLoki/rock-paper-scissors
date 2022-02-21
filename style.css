@@ -7,6 +7,8 @@
 :root{
     --orange: hsl(14, 100%, 64%);
     --pink: hsl(337, 72%, 57%);
+    --white: #fff;
+    --background: hsl(233, 57%, 9%);
 }
 
 body{
@@ -72,9 +74,42 @@ button:hover{
     cursor: pointer;
 }
 
+.popup {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: hsla(0, 0%, 0%, 0.65);
+    color: var(--white);
+    font-size: 5rem;
+}
+
+.popup button {
+    font-size: 3rem;
+    background-color: var(--white);
+    border: 1px solid var(--background);
+    padding: .3em .5em;
+    cursor: pointer;
+}
+
+.popup button:hover {
+    background-color: var(--background);
+    color: var(--white);
+    border-color: var(--white);
+}
+
+.popup.show {
+    display: flex;
+}
+
 footer{
     position: absolute;
-    bottom: 2rem;
+    bottom: 1em;
 }
 
 footer a{
