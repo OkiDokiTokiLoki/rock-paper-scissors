@@ -1,128 +1,106 @@
-const rockBtn = document.querySelector('#rockBtn');
-const paperBtn = document.querySelector('#paperBtn');
-const scissorsBtn = document.querySelector('#scissorsBtn');
-const playerPick = document.querySelector('#player');
-const computerPick = document.querySelector('#computer');
-const restartBtn = document.querySelector('#restart');
-const popupModal = document.querySelector('#popupModal');
+const CHOICES = ['rock', 'paper', 'scissors'];
+const gameRules = {
+    'rock': { beats: 'scissors' },
+    'paper': { beats: 'rock' },
+    'scissors': { beats: 'paper' }
+};
+
+const elements = {
+    rockBtn: document.querySelector('#rockBtn'),
+    paperBtn: document.querySelector('#paperBtn'),
+    scissorsBtn: document.querySelector('#scissorsBtn'),
+    playerPick: document.querySelector('#player'),
+    computerPick: document.querySelector('#computer'),
+    restartBtn: document.querySelector('#restart'),
+    popupModal: document.querySelector('#popupModal'),
+    scoreInfo: document.querySelector('#scoreInfo'),
+    pTally: document.querySelector('.pScore'),
+    cTally: document.querySelector('.cScore')
+};
 
 let playerScore = 0;
 let computerScore = 0;
 let roundWinner = '';
 
-
-rockBtn.addEventListener('click', () => handleClick('rock'));
-paperBtn.addEventListener('click', () => handleClick('paper'));
-scissorsBtn.addEventListener('click', () => handleClick('scissors'));
+elements.rockBtn.addEventListener('click', () => handleClick('rock'));
+elements.paperBtn.addEventListener('click', () => handleClick('paper'));
+elements.scissorsBtn.addEventListener('click', () => handleClick('scissors'));
+elements.restartBtn.addEventListener('click', restart);
 
 function getComputerChoice() {
-    let computerChoice = Math.floor(Math.random() * 3)
-    switch (computerChoice) {
-        case 0:
-        return 'rock'
-        case 1:
-        return 'paper'
-        case 2:
-        return 'scissors'
-    }
+    let computerChoice = Math.floor(Math.random() * CHOICES.length);
+    return CHOICES[computerChoice];
 }
 
-function isGameOver(){
-    return playerScore === 5 || computerScore === 5;
-}
-
-function playRound(playerSelection, computerSelection){
-    if(playerSelection == computerSelection){
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection === computerSelection) {
         roundWinner = 'tie';
-    } else if(playerSelection === "rock" && computerSelection === "scissors"){
-        playerScore++
+    } else if (gameRules[playerSelection].beats === computerSelection) {
+        playerScore++;
         roundWinner = 'player';
-    } else if(playerSelection === "paper" && computerSelection === "rock"){
-        playerScore++
-        roundWinner = 'player';
-    } else if(playerSelection === "scissors" && computerSelection === "paper"){
-        playerScore++
-        roundWinner = 'player';
-    } else{
-        computerScore++
+    } else {
+        computerScore++;
         roundWinner = 'computer';
     }
 }
 
 function updateChoices(playerSelection, computerSelection) {
-    switch (playerSelection) {
-      case 'rock':
-        playerPick.textContent = '✊'
-        break
-      case 'paper':
-        playerPick.textContent = '✋'
-        break
-      case 'scissors':
-        playerPick.textContent = '✌'
-        break
-    }
-  
-    switch (computerSelection) {
-      case 'rock':
-        computerPick.textContent = '✊'
-        break
-      case 'paper':
-        computerPick.textContent = '✋'
-        break
-      case 'scissors':
-        computerPick.textContent = '✌'
-        break
+    elements.playerPick.textContent = getHandEmoji(playerSelection);
+    elements.computerPick.textContent = getHandEmoji(computerSelection);
+}
+
+function getHandEmoji(choice) {
+    switch (choice) {
+        case 'rock':
+            return '✊';
+        case 'paper':
+            return '✋';
+        case 'scissors':
+            return '✌';
+        default:
+            return '';
     }
 }
 
-const scoreInfo = document.querySelector('#scoreInfo');
-
-function updateScore(){
-    
-    const pTally = document.querySelector('.pScore');
-    const cTally = document.querySelector('.cScore');
-
-    if (roundWinner === 'tie'){
-        scoreInfo.style.color = 'whitesmoke';
-        scoreInfo.textContent = `= it's a tie =`;
-    } else if (roundWinner === 'player'){
-        scoreInfo.style.color = 'var(--orange)';
-        scoreInfo.textContent = `+ you win this round! +`;
-    } else if (roundWinner === 'computer'){
-        scoreInfo.style.color = 'var(--pink)';
-        scoreInfo.textContent = `- you lose this round -`;
+function updateScore() {
+    if (roundWinner === 'tie') {
+        updateScoreInfo('whitesmoke', '= it\'s a tie =');
+    } else if (roundWinner === 'player') {
+        updateScoreInfo('var(--orange)', `+ you win this round! +`);
+    } else if (roundWinner === 'computer') {
+        updateScoreInfo('var(--pink)', `- you lose this round -`);
     }
-    pTally.textContent = `${playerScore}`;
-    cTally.textContent = `${computerScore}`;
+    elements.pTally.textContent = `${playerScore}`;
+    elements.cTally.textContent = `${computerScore}`;
 }
 
-function handleClick(playerSelection){
+function updateScoreInfo(color, text) {
+    elements.scoreInfo.style.color = color;
+    elements.scoreInfo.textContent = text;
+}
+
+function isGameOver() {
+    return playerScore === 5 || computerScore === 5;
+}
+
+function endGame() {
+    elements.popupModal.classList.add('show');
+    const resultText = (playerScore > computerScore) ? 'Yay! You won the game' : 'Ah you lose, better luck next time';
+    elements.scoreInfo.textContent = resultText;
+}
+
+function handleClick(playerSelection) {
     const computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
     updateChoices(playerSelection, computerSelection);
-    updateScore();  
+    updateScore();
 
-    if (isGameOver()){
-        endGame()
-        return
+    if (isGameOver()) {
+        endGame();
+        return;
     }
 }
 
-function endGame(){
-
-    //document.body.style.backgroundColor = '#006891';
-    popupModal.classList.add('show');
-    
-    if (playerScore > computerScore){
-        scoreInfo.textContent = 'Yay! You won the game';
-    } else{
-        scoreInfo.textContent = 'Ah you lose, better luck next time';
-    }
-    return
-}
-
-restartBtn.addEventListener('click', restart)
-
-function restart(){
+function restart() {
     location.reload();
 }
