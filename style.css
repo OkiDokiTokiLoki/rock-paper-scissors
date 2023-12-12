@@ -1,64 +1,64 @@
 *,
 *::before,
-*::after{
+*::after {
     box-sizing: border-box;
 }
 
-:root{
+:root {
     --orange: hsl(14, 100%, 64%);
     --pink: hsl(337, 72%, 57%);
-    --white: #fff;
     --background: hsl(233, 57%, 9%);
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 95vh;
-    padding: 0 200px;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
     text-align: center; 
     font-family: 'Poppins', sans-serif;
-    background-color: hsl(233, 57%, 9%);
-    color: white;
+    background-color: var(--background);
+    color: #fff;
 }
 
-h1{
-    font-size: 3rem;
+h1 {
+    font-size: 1.75rem;
     background: -webkit-linear-gradient(var(--orange), var(--pink));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.liveScore{
+.liveScore {
     height: 150px;
     width: 100%;
 }
 
-.users{
+.users {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
 .pScore,
-.cScore{
+.cScore {
     position: absolute;
     text-indent: 5px;
 }
 
-.user p{
+.user p {
     font-size: 2.5rem;
 }
 
-.buttons{
-    margin: 60px 0;
+.buttons {
+    margin: 35% 0;
 }
 
-button{
-    margin: 0 20px;
+button {
+    margin: 5px;
     padding: 10px;
     border: 2px solid whitesmoke;
     outline: 2px solid var(--pink);
@@ -66,12 +66,17 @@ button{
     transition: all 250ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-button:hover{
+button:hover {
     border: 2px dashed var(--orange);
     box-shadow: inset 0 0 10px rgba(255, 255, 255, .5), 0 0 10px rgba(255, 255, 255, .2);
     outline-color: rgba(255, 255, 255, 0);
     outline-offset: 15px;
     cursor: pointer;
+}
+
+button img {
+    width: 70px;
+    height: 70px;
 }
 
 .popup {
@@ -85,13 +90,13 @@ button:hover{
     right: 0;
     bottom: 0;
     background-color: hsla(0, 0%, 0%, 0.65);
-    color: var(--white);
+    color: #fff;
     font-size: 5rem;
 }
 
 .popup button {
     font-size: 3rem;
-    background-color: var(--white);
+    background-color: #fff;
     border: 1px solid var(--background);
     padding: .3em .5em;
     cursor: pointer;
@@ -99,83 +104,71 @@ button:hover{
 
 .popup button:hover {
     background-color: var(--background);
-    color: var(--white);
-    border-color: var(--white);
+    color: #fff;
+    border-color: #fff;
 }
 
 .popup.show {
     display: flex;
 }
 
-footer{
+footer {
     position: absolute;
     bottom: 1em;
 }
 
-footer a{
+footer a {
     text-decoration: none;
     color: whitesmoke;
     transition: all 200ms ease;
 }
 
-footer a:hover{
+footer a:hover {
     color: var(--pink);
 }
 
-@media screen and (max-width: 450px) {
-    body {
-      height: 100%;
-      padding: 0;
-      margin: 0;
-    }
-
-    h1{
-        font-size: 1.75rem;
-    }
-
-    .buttons{
-        margin: 5rem 0;
-    }
-
-    button{
-        margin: 5px;
-    }
-
-    button img{
-        width: 70px;
-        height: 70px;
-    }
-}
-
-@media screen and (min-width: 451px) and (max-width: 1001px) {
-    body {
-        height: 95vh;
-        padding: 0;
-        margin: 0;
-    }
-
-    h1{
+@media screen and (min-width: 768px) {
+    h1 {
         font-size: 2rem;
     }
 
-    h2{
+    h2 {
         font-size: 1.5rem;
     }
 
-    h3{
+    h3 {
         font-size: 1.25rem;
     }
 
-    .liveScore{
+    .liveScore {
         height: 20vh;
     }
 
-    button{
+    .buttons {
+        margin: 60px 0;
+    } 
+
+    button {
         margin: 5px;
     }
 
-    button img{
+    button img {
         width: 100px;
         height: 100px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    body {
+        height: 95vh;
+        padding: 0 200px;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    button {
+        margin: 0 20px;
     }
 }

@@ -1,59 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="./fav.ico">
-    <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="./fav.ico">
+        <link rel="stylesheet" href="./style.css">
 
-    <title>rock paper scissors</title>
-</head>
-<body>
+        <title>rock paper scissors</title>
+    </head>
 
-    <h1>rock | paper | scissors</h1>
+    <body>
+        <h1>rock | paper | scissors</h1>
 
-    <div class="liveScore">
-        
-        <h2 id="scoreInfo">choose your weapon of choice</h2>
+        <div class="liveScore">
+            <h2 id="scoreInfo">choose your weapon of choice</h2>
 
-        <div class="users">
-            <div class="user">
-                <h3>player: <span class="pScore">0</span></h3>
-                <p id="player"></p>
-            </div>
+            <div class="users">
+                <div class="user">
+                    <h3>player: <span class="pScore">0</span></h3>
+                    <p id="player"></p>
+                </div>
 
-            <div class="user">
-                <h3>computer: <span class="cScore">0</span></h3> 
-                <p id="computer"></p>
+                <div class="user">
+                    <h3>computer: <span class="cScore">0</span></h3> 
+                    <p id="computer"></p>
+                </div>
             </div>
         </div>
 
-    </div>
+        <div class="buttons">
+            <button id="rockBtn"><img src="./assets/rockIcon.png" alt="rock"></button>
+            <button id="paperBtn"><img src="./assets/paperIcon.png" alt="paper"></button>
+            <button id="scissorsBtn"><img src="./assets/scissorsIcon.png" alt="scissors"></button>
+        </div>
 
-    <div class="buttons">
-        <button id="rockBtn"><img src="./assets/rockIcon.png" alt="rock"></button>
-        <button id="paperBtn"><img src="./assets/paperIcon.png" alt="paper"></button>
-        <button id="scissorsBtn"><img src="./assets/scissorsIcon.png" alt="scissors"></button>
-    </div>
+        <div class="popup" id="popupModal">
+            <button id="restart">restart</button>
+        </div>
 
-    <div class="popup" id="popupModal">
-        <button id="restart">restart</button>
-    </div>
-
-    <footer>
-        <p>Copyright ©
-            <script>
-                document.write(new Date().getFullYear())
-            </script>
-        <a href="https://github.com/OkiDokiTokiLoki/rock-paper-scissors">OkiDokiTokiLoki</a>
-	    </p>
-    </footer>
-    
-    <script src="./game.js"></script>
-</body>
+        <footer>
+            <p>Copyright ©
+                <script>
+                    document.write(new Date().getFullYear())
+                </script>
+            <a href="https://github.com/OkiDokiTokiLoki/rock-paper-scissors">OkiDokiTokiLoki</a>
+            </p>
+        </footer>
+        
+        <script src="./game.js"></script>
+    </body>
 </html>

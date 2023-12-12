@@ -56,7 +56,7 @@ function getHandEmoji(choice) {
         case 'paper':
             return '✋';
         case 'scissors':
-            return '✌';
+            return '✌️';
         default:
             return '';
     }
