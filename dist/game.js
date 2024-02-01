@@ -1,10 +1,10 @@
+"use strict";
 const CHOICES = ['rock', 'paper', 'scissors'];
 const gameRules = {
     'rock': { beats: 'scissors' },
     'paper': { beats: 'rock' },
     'scissors': { beats: 'paper' }
 };
-
 const elements = {
     rockBtn: document.querySelector('#rockBtn'),
     paperBtn: document.querySelector('#paperBtn'),
@@ -17,38 +17,46 @@ const elements = {
     pTally: document.querySelector('.pScore'),
     cTally: document.querySelector('.cScore')
 };
-
 let playerScore = 0;
 let computerScore = 0;
 let roundWinner = '';
-
-elements.rockBtn.addEventListener('click', () => handleClick('rock'));
-elements.paperBtn.addEventListener('click', () => handleClick('paper'));
-elements.scissorsBtn.addEventListener('click', () => handleClick('scissors'));
-elements.restartBtn.addEventListener('click', restart);
-
+if (elements.rockBtn) {
+    elements.rockBtn.addEventListener('click', () => handleClick('rock'));
+}
+if (elements.paperBtn) {
+    elements.paperBtn.addEventListener('click', () => handleClick('paper'));
+}
+if (elements.scissorsBtn) {
+    elements.scissorsBtn.addEventListener('click', () => handleClick('scissors'));
+}
+if (elements.restartBtn) {
+    elements.restartBtn.addEventListener('click', restart);
+}
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * CHOICES.length);
     return CHOICES[computerChoice];
 }
-
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         roundWinner = 'tie';
-    } else if (gameRules[playerSelection].beats === computerSelection) {
+    }
+    else if (gameRules[playerSelection].beats === computerSelection) {
         playerScore++;
         roundWinner = 'player';
-    } else {
+    }
+    else {
         computerScore++;
         roundWinner = 'computer';
     }
 }
-
 function updateChoices(playerSelection, computerSelection) {
-    elements.playerPick.textContent = getHandEmoji(playerSelection);
-    elements.computerPick.textContent = getHandEmoji(computerSelection);
+    if (elements.playerPick) {
+        elements.playerPick.textContent = getHandEmoji(playerSelection);
+    }
+    if (elements.computerPick) {
+        elements.computerPick.textContent = getHandEmoji(computerSelection);
+    }
 }
-
 function getHandEmoji(choice) {
     switch (choice) {
         case 'rock':
@@ -61,46 +69,51 @@ function getHandEmoji(choice) {
             return '';
     }
 }
-
 function updateScore() {
     if (roundWinner === 'tie') {
         updateScoreInfo('whitesmoke', '= it\'s a tie =');
-    } else if (roundWinner === 'player') {
+    }
+    else if (roundWinner === 'player') {
         updateScoreInfo('var(--orange)', `+ you win this round! +`);
-    } else if (roundWinner === 'computer') {
+    }
+    else if (roundWinner === 'computer') {
         updateScoreInfo('var(--pink)', `- you lose this round -`);
     }
-    elements.pTally.textContent = `${playerScore}`;
-    elements.cTally.textContent = `${computerScore}`;
+    if (elements.pTally) {
+        elements.pTally.textContent = `${playerScore}`;
+    }
+    if (elements.cTally) {
+        elements.cTally.textContent = `${computerScore}`;
+    }
 }
-
 function updateScoreInfo(color, text) {
-    elements.scoreInfo.style.color = color;
-    elements.scoreInfo.textContent = text;
+    if (elements.scoreInfo) {
+        elements.scoreInfo.style.color = color;
+        elements.scoreInfo.textContent = text;
+    }
 }
-
 function isGameOver() {
     return playerScore === 5 || computerScore === 5;
 }
-
 function endGame() {
-    elements.popupModal.classList.add('show');
-    const resultText = (playerScore > computerScore) ? 'Yay! You won the game' : 'Ah you lose, better luck next time';
-    elements.scoreInfo.textContent = resultText;
+    if (elements.popupModal) {
+        elements.popupModal.classList.add('show');
+        const resultText = (playerScore > computerScore) ? 'Yay! You won the game' : 'Ah you lose, better luck next time';
+        if (elements.scoreInfo) {
+            elements.scoreInfo.textContent = resultText;
+        }
+    }
 }
-
 function handleClick(playerSelection) {
     const computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
     updateChoices(playerSelection, computerSelection);
     updateScore();
-
     if (isGameOver()) {
         endGame();
         return;
     }
 }
-
 function restart() {
     location.reload();
 }
