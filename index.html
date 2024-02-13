@@ -9,7 +9,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
         <link rel="icon" type="image/x-icon" href="./fav.ico">
-        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="./assets/css/main.min.css">
 
         <title>rock paper scissors</title>
     </head>
@@ -34,22 +34,25 @@
         </div>
 
         <div class="buttons">
-            <button id="rockBtn"><img src="./assets/rockIcon.png" alt="rock"></button>
-            <button id="paperBtn"><img src="./assets/paperIcon.png" alt="paper"></button>
-            <button id="scissorsBtn"><img src="./assets/scissorsIcon.png" alt="scissors"></button>
+            <button id="rockBtn"><img src="./assets/img/rockIcon.png" alt="player selection: rock"></button>
+            <button id="paperBtn"><img src="./assets/img/paperIcon.png" alt="player selection: paper"></button>
+            <button id="scissorsBtn"><img src="./assets/img/scissorsIcon.png" alt="player selection: scissors"></button>
         </div>
 
-        <div class="popup" id="popupModal">
-            <button id="restart">restart</button>
+        <div class="popup" id="restartModal">
+            <button id="restart">&#10226;</button>
         </div>
 
         <footer>
-            <p>Copyright ©
-                <script>
-                    document.write(new Date().getFullYear())
-                </script>
-            <a href="https://github.com/OkiDokiTokiLoki/rock-paper-scissors">OkiDokiTokiLoki</a>
-            </p>
+            <p>
+				&copy;
+				<span id="yearSpan">
+					<script>
+						document.querySelector("#yearSpan").textContent = new Date().getFullYear();
+					</script>
+				</span>
+				<a href="https://github.com/OkiDokiTokiLoki/rock-paper-scissors">OkiDokiTokiLoki</a>
+			</p>
         </footer>
         
         <script src="./dist/game.js"></script>

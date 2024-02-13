@@ -12,7 +12,7 @@ const elements = {
     playerPick: document.querySelector('#player'),
     computerPick: document.querySelector('#computer'),
     restartBtn: document.querySelector('#restart'),
-    popupModal: document.querySelector('#popupModal'),
+    restartModal: document.querySelector('#restartModal'),
     scoreInfo: document.querySelector('#scoreInfo'),
     pTally: document.querySelector('.pScore'),
     cTally: document.querySelector('.cScore')
@@ -96,8 +96,8 @@ function isGameOver() {
     return playerScore === 5 || computerScore === 5;
 }
 function endGame() {
-    if (elements.popupModal) {
-        elements.popupModal.classList.add('show');
+    if (elements.restartModal) {
+        elements.restartModal.classList.add('show');
         const resultText = (playerScore > computerScore) ? 'Yay! You won the game' : 'Ah you lose, better luck next time';
         if (elements.scoreInfo) {
             elements.scoreInfo.textContent = resultText;

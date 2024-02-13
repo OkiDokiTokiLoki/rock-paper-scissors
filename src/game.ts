@@ -17,7 +17,7 @@ interface Elements {
     playerPick: Element | null;
     computerPick: Element | null;
     restartBtn: Element | null;
-    popupModal: Element | null;
+    restartModal: Element | null;
     scoreInfo: Element | null;
     pTally: Element | null;
     cTally: Element | null;
@@ -30,7 +30,7 @@ const elements: Elements = {
     playerPick: document.querySelector('#player'),
     computerPick: document.querySelector('#computer'),
     restartBtn: document.querySelector('#restart'),
-    popupModal: document.querySelector('#popupModal'),
+    restartModal: document.querySelector('#restartModal'),
     scoreInfo: document.querySelector('#scoreInfo'),
     pTally: document.querySelector('.pScore'),
     cTally: document.querySelector('.cScore')
@@ -126,8 +126,8 @@ function isGameOver(): boolean {
 }
 
 function endGame(): void {
-    if (elements.popupModal) {
-        elements.popupModal.classList.add('show');
+    if (elements.restartModal) {
+        elements.restartModal.classList.add('show');
         const resultText: string = (playerScore > computerScore) ? 'Yay! You won the game' : 'Ah you lose, better luck next time';
         
         if (elements.scoreInfo) {

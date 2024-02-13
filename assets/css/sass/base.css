@@ -1,0 +1,11 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --orange: hsl(14, 100%, 64%);
+  --pink: hsl(337, 72%, 57%);
+  --background: hsl(233, 57%, 9%);
+}/*# sourceMappingURL=base.css.map */
