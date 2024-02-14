@@ -9,5 +9,5 @@ It's Rock, Paper, Scissors 🤷🏻‍♂️ First to 5 wins the game
 ## Technologies
 Created with:
 * HTML
-* CSS
+* CSS / Sass
 * JavaScript / TypeScript
