@@ -2,14 +2,12 @@
 *::before,
 *::after {
 	box-sizing: border-box;
+	font-weight: 300;
 }
 
 :root {
-	// --orange: hsl(14, 100%, 64%);
-	// --pink: hsl(337, 72%, 57%);
-	// --background: hsl(233, 57%, 9%);
 	--orange: hsl(39, 100%, 64%);
-	--blue: #21bab5;
+	--blue: hsl(178, 70%, 43%);
 	--pink: hsl(330, 88%, 55%);
 	--background: hsl(202, 85%, 8%);
 }
